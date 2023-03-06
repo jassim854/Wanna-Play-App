@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:tennis_app/screens/login.dart';
 import 'package:tennis_app/utilities/constant/button_text_style.dart';
+import 'package:tennis_app/utilities/constant/colors.dart';
 import 'package:tennis_app/utilities/constant/heading_text_style.dart';
+import 'package:tennis_app/utilities/constant/image_path.dart';
 import 'package:tennis_app/widgets/button_widgets.dart';
 import 'package:tennis_app/widgets/circle_widget.dart';
 import 'package:tennis_app/widgets/custom_sized_box_widget.dart';
@@ -17,6 +20,7 @@ class SignUpGiocatore extends StatefulWidget {
 class _SignUpGiocatoreState extends State<SignUpGiocatore> {
   int val = -1;
   int values = -1;
+  bool check = false;
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -30,7 +34,7 @@ class _SignUpGiocatoreState extends State<SignUpGiocatore> {
               const SizedBox(
                 height: 88,
               ),
-              Circle(url: 'http://im.rediff.com/sports/2018/jan/15nadal.jpg'),
+               Circle(radius: 50, images: ImagePath.loginlogo),
               const SizedBox(
                 height: 27,
               ),
@@ -152,23 +156,46 @@ class _SignUpGiocatoreState extends State<SignUpGiocatore> {
               ),
               Text(
                 'Privacy Policy ',
-                style: privacy_color,
+                style: newtextcolour,
               ),
               const SizedBox(
                 height: 13,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [],
+                children: [
+                  Checkbox(
+                      value: check,
+                      activeColor: Colors.green,
+                      onChanged: ((value) {
+                        setState(() {
+                          check = value!;
+                        });
+                      })),
+                  Text(
+                    'I accept the Privacy Policy',
+                    style: radio_text_color,
+                  )
+                ],
               ),
               const SizedBox(
                 height: 53,
               ),
               CustomButton(
+                  color: Appcolor.buttonnewcolor,
                   height: height * 0.06,
                   width: width * 0.8,
                   text: 'Registrati',
-                  onpressed: () {})
+                  onpressed: () {
+                    if (check == true) {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: ((context) => Login())));
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: const Text("Agree the Privacy Policy"),
+                      ));
+                    }
+                  })
             ],
           ),
         ),

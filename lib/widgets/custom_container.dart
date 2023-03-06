@@ -10,30 +10,37 @@ import 'package:tennis_app/widgets/custom_sized_box_widget.dart';
 
 import 'circle_widget.dart';
 
-class ContainerListTile extends StatelessWidget {
-  String urls;
+class ContainerListTile extends StatefulWidget {
   String titletext;
   String subtitle;
-  String? level = "";
+  String? level;
+  String imagee;
   void Function()? ontap;
   String characterselect;
 
   ContainerListTile({
     Key? key,
-    required this.urls,
     required this.titletext,
     required this.subtitle,
     this.level,
+    required this.imagee,
     required this.ontap,
     required this.characterselect,
   }) : super(key: key);
+
+  @override
+  State<ContainerListTile> createState() => _ContainerListTileState();
+}
+
+class _ContainerListTileState extends State<ContainerListTile> {
+  double value = 3.5;
 
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return GestureDetector(
-      onTap: ontap,
+      onTap: widget.ontap,
       child: Container(
         height: height * 0.1,
         width: width * 0.2,
@@ -41,11 +48,7 @@ class ContainerListTile extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Circle(
-              url: urls,
-              height: 50,
-              width: 50,
-            ),
+            Circle(radius: 30, images: widget.imagee),
             CustomSizedBox(
               width: width * 0.05,
             ),
@@ -53,32 +56,43 @@ class ContainerListTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  titletext,
+                  widget.titletext,
                   style: searchtitle,
                 ),
                 Text(
-                  subtitle,
+                  widget.subtitle,
                   style: searchsubtitles,
                 ),
-                const RatingStars(
+                RatingStars(
                   starColor: Appcolor.starcolor,
-                )
+                  value: value,
+                  onValueChanged: (valu) {
+                    setState(() {
+                      value = valu;
+                    });
+                  },
+                ) 
               ],
             ),
             Spacer(),
-            Column(
-              children: [
-                Text(
-                  level!,
-                ),
-                CustomSizedBox(
-                  height: height * 0.02,
-                ),
-                Text(
-                  characterselect,
-                  style: searchsubtitles,
-                ),
-              ],
+            Expanded(
+              flex: 35,
+              child: Column(
+                children: [
+                  widget.level == null
+                      ? SizedBox()
+                      : Text(
+                          widget.level!,
+                        ),
+                  CustomSizedBox(
+                    height: height * 0.02,
+                  ),
+                  Text(
+                    widget.characterselect,
+                    style: searchsubtitles,
+                  ),
+                ],
+              ),
             ),
           ],
         ),

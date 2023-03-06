@@ -1,30 +1,28 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:tennis_app/utilities/constant/image_path.dart';
 
-class Circle extends StatelessWidget {
-  double? height;
-  double? width;
-  String url;
+class Circle extends StatefulWidget {
+  double? radius;
+
+  String images;
 
   Circle({
     Key? key,
-    this.height,
-    this.width,
-    required this.url,
+    required this.radius,
+    required this.images,
   }) : super(key: key);
 
   @override
+  State<Circle> createState() => _CircleState();
+}
+
+class _CircleState extends State<Circle> {
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(30),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(100), color: Colors.blueAccent),
-      height: height ?? 200,
-      width: width ?? 200,
-      child: Image.network(
-        url,
-        fit: BoxFit.fill,
-      ),
+    return CircleAvatar(
+      radius: widget.radius,
+      backgroundImage: AssetImage(widget.images),
     );
   }
 }

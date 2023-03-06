@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:tennis_app/utilities/constant/colors.dart';
+import 'package:tennis_app/widgets/custom_sized_box_widget.dart';
 
 import '../utilities/constant/button_text_style.dart';
 
@@ -10,6 +11,7 @@ class CustomButton extends StatelessWidget {
   double? width;
   TextStyle? style;
   Color? color;
+  String? imgpath;
   void Function()? onpressed;
   CustomButton({
     Key? key,
@@ -18,6 +20,7 @@ class CustomButton extends StatelessWidget {
     this.width,
     this.style,
     this.color,
+    this.imgpath,
     required this.onpressed,
   }) : super(key: key);
 
@@ -30,12 +33,20 @@ class CustomButton extends StatelessWidget {
         width: width ?? MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(17),
-            color: color ?? Appcolor.button_color),
-        child: Center(
-            child: Text(
-          text,
-          style: style ?? btn_login_text,
-        )),
+            color: color ?? Colors.black),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              text,
+              style: style ?? btn_login_text,
+            ),
+            CustomSizedBox(
+              width: width! * 0.06,
+            ),
+            imgpath == null ? const SizedBox() : Image.asset(imgpath!),
+          ],
+        ),
       ),
     );
   }

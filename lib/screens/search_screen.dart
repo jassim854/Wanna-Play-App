@@ -6,6 +6,7 @@ import 'package:tennis_app/screens/coachprofile.dart';
 import 'package:tennis_app/screens/giocatore_profile.dart';
 import 'package:tennis_app/utilities/constant/colors.dart';
 import 'package:tennis_app/utilities/constant/heading_text_style.dart';
+import 'package:tennis_app/utilities/constant/image_path.dart';
 import 'package:tennis_app/widgets/circle_widget.dart';
 import 'package:tennis_app/widgets/custom_container.dart';
 import 'package:tennis_app/widgets/custom_sized_box_widget.dart';
@@ -23,13 +24,18 @@ class _SearchScreenState extends State<SearchScreen>
     with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-    TabController _tabcontrolller = TabController(length: 6, vsync: this);
+    TabController _tabcontrolller = TabController(length: 4, vsync: this);
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
-      // resizeToAvoidBottomInset: true,
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
-        title: const Center(child: Text('Search')),
+        backgroundColor: Appcolor.textfield_color,
+        title: Center(
+            child: Text(
+          'Search',
+          style: heading_text,
+        )),
       ),
       body: Container(
         child: Column(
@@ -68,12 +74,6 @@ class _SearchScreenState extends State<SearchScreen>
                     Text(
                       'Circolo',
                     ),
-                    Text(
-                      'Città',
-                    ),
-                    Text(
-                      'Negozi',
-                    )
                   ]),
             ),
             Expanded(
@@ -94,17 +94,17 @@ class _SearchScreenState extends State<SearchScreen>
                               Navigator.of(context).push(MaterialPageRoute(
                                   builder: (context) => GiocatoreProfile()));
                             },
-                            urls: "",
                             titletext: 'Rafael Nadal',
                             subtitle: 'Milano',
                             characterselect: 'Giocatore',
-                            level: '2',
+                            imagee: ImagePath.rafaellogo,
                           );
                         }),
                         separatorBuilder: (BuildContext context, int index) =>
                             const Divider(
-                              height: 1,
-                              color: Colors.black,
+                              height: 5,
+                              thickness: 5,
+                              color: Appcolor.divivdercolor,
                             )),
                     ListView.separated(
                         itemCount: 10,
@@ -116,20 +116,20 @@ class _SearchScreenState extends State<SearchScreen>
                               Navigator.of(context).push(MaterialPageRoute(
                                   builder: (context) => CoachProfile()));
                             },
-                            urls: "",
+                            imagee: ImagePath.coachlogo,
                             titletext: 'Novak Djokovick',
                             subtitle: 'Milano',
                             characterselect: 'Giocatore',
-                            level: '2',
                           );
                         }),
                         separatorBuilder: (BuildContext context, int index) =>
                             const Divider(
-                              height: 1,
-                              color: Colors.black,
+                              height: 5,
+                              thickness: 5,
+                              color: Appcolor.divivdercolor,
                             )),
                     ListView.separated(
-                        itemCount: 10,
+                        itemCount: 3,
                         shrinkWrap: true,
                         scrollDirection: Axis.vertical,
                         itemBuilder: ((context, index) {
@@ -138,17 +138,17 @@ class _SearchScreenState extends State<SearchScreen>
                               Navigator.of(context).push(MaterialPageRoute(
                                   builder: (context) => CoachProfile()));
                             },
-                            urls: "",
+                            imagee: ImagePath.rafaellogo,
                             titletext: 'Novak Djokovick',
                             subtitle: 'Milano',
-                            characterselect: 'Giocatore',
-                            level: '2',
+                            characterselect: '2KM',
                           );
                         }),
                         separatorBuilder: (BuildContext context, int index) =>
                             const Divider(
-                              height: 1,
-                              color: Colors.black,
+                              height: 5,
+                              thickness: 5,
+                              color: Appcolor.divivdercolor,
                             )),
                     ListView.separated(
                         itemCount: 10,
@@ -160,18 +160,18 @@ class _SearchScreenState extends State<SearchScreen>
                               Navigator.of(context).push(MaterialPageRoute(
                                   builder: (context) => CircoloVisitor()));
                             },
-                            urls: "",
+                            imagee: ImagePath.circolologo,
                             titletext: 'Circolo 1',
                             subtitle: 'Centro Sportivo Giovani Cimabue',
                             characterselect: 'Circolo',
-                            level: '2',
                           );
                         }),
                         separatorBuilder: (BuildContext context, int index) =>
                             const Divider(
-                              height: 1,
-                              color: Colors.black,
-                            ))
+                              height: 5,
+                              thickness: 5,
+                              color: Appcolor.divivdercolor,
+                            )),
                   ],
                 ),
               ),

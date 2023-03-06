@@ -8,6 +8,7 @@ class CustomRadioButton extends StatelessWidget {
   int val;
   int value;
   String text;
+  TextStyle? style;
   Function(int?) onChanged;
 
   CustomRadioButton({
@@ -16,6 +17,7 @@ class CustomRadioButton extends StatelessWidget {
     required this.value,
     required this.text,
     required this.onChanged,
+    this.style,
   }) : super(key: key);
 
   @override
@@ -25,7 +27,7 @@ class CustomRadioButton extends StatelessWidget {
         Radio(value: value, groupValue: val, onChanged: onChanged),
         Text(
           text,
-          style: radio_text_color,
+          style: style ?? radio_text_color,
         ),
       ],
     );

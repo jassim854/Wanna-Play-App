@@ -19,6 +19,10 @@ var privacy_color = GoogleFonts.roboto(
 
 var textc = GoogleFonts.roboto(
     fontSize: 16, color: Colors.black, fontWeight: FontWeight.w500);
+    
+var textlisttile = GoogleFonts.roboto(
+    fontSize: 16, color: Colors.white, fontWeight: FontWeight.w500);
+
 
 var searchtitle = GoogleFonts.roboto(
     fontSize: 14, color: Colors.black, fontWeight: FontWeight.w500);
@@ -28,7 +32,20 @@ var searchsubtitles = GoogleFonts.roboto(
 var notificationtitlecolor = GoogleFonts.roboto(
     fontSize: 12, color: Colors.black, fontWeight: FontWeight.w500);
 
-    var notificationsubtitlecolor = GoogleFonts.roboto(
+var notificationsubtitlecolor = GoogleFonts.roboto(
     fontSize: 12, color: Appcolor.hinttext_color, fontWeight: FontWeight.w500);
-    var notificationtrailingcolor= GoogleFonts.roboto(
+var notificationtrailingcolor = GoogleFonts.roboto(
     fontSize: 14, color: Appcolor.privacy_color, fontWeight: FontWeight.w500);
+var circolocolr = GoogleFonts.roboto(
+    fontSize: 14, color: Appcolor.hinttext_color, fontWeight: FontWeight.w500);
+var circoloservizi = GoogleFonts.roboto(
+    fontSize: 16, color: Appcolor.hinttext_color, fontWeight: FontWeight.w500);
+
+var vscolor = GoogleFonts.roboto(
+    fontSize: 25, color: Colors.black, fontWeight: FontWeight.w500);
+var finito = GoogleFonts.roboto(
+    fontSize: 20, color: Appcolor.privacy_color, fontWeight: FontWeight.w500);
+var newtextcolour = GoogleFonts.roboto(
+    fontSize: 22, color: Appcolor.buttonnewcolor, fontWeight: FontWeight.w500);
+var notificationtext = GoogleFonts.roboto(
+    fontSize: 14, color: Appcolor.notificationcolor, fontWeight: FontWeight.w500);

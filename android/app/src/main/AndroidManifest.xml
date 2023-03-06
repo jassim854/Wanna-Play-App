@@ -1,9 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tennis_app">
+   
    <application
-        android:label="tennis_app"
+        android:label="Wanna PLay"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        android:requestLegacyExternalStorage="true"
+        <meta-data android:name="com.google.android.geo.API_KEY"
+         android:value="AIzaSyA5AqTCc8eq5-eQv1M2TpoLTo3bhh_SvZk"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

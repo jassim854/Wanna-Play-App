@@ -2,14 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_rating_stars/flutter_rating_stars.dart';
+import 'package:tennis_app/screens/chat_with_user.dart';
 import 'package:tennis_app/utilities/constant/button_text_style.dart';
+import 'package:tennis_app/utilities/constant/colors.dart';
 import 'package:tennis_app/utilities/constant/heading_text_style.dart';
+import 'package:tennis_app/utilities/constant/image_path.dart';
 import 'package:tennis_app/widgets/button_widgets.dart';
 import 'package:tennis_app/widgets/circle_widget.dart';
 import 'package:tennis_app/widgets/custom_sized_box_widget.dart';
+import 'package:tennis_app/widgets/rating_star.dart';
 
 class GiocatoreInvite extends StatelessWidget {
-  const GiocatoreInvite({super.key});
+  double value = 3.5;
+   GiocatoreInvite({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +22,11 @@ class GiocatoreInvite extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Rafael Nadal"),
+        backgroundColor: Appcolor.textfield_color,
+        title: Text(
+          "Rafael Nadal",
+          style: heading_text,
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -28,7 +37,11 @@ class GiocatoreInvite extends StatelessWidget {
               CustomSizedBox(
                 height: height * 0.05,
               ),
-              Container(width: 182, height: 182, child: Circle(url: '')),
+              Container(
+                width: 182,
+                height: 182,
+                child: Circle(radius: 50, images: ImagePath.loginlogo),
+              ),
               CustomSizedBox(
                 height: height * 0.04,
               ),
@@ -39,7 +52,7 @@ class GiocatoreInvite extends StatelessWidget {
               CustomSizedBox(
                 height: height * 0.015,
               ),
-              RatingStars(),
+             Rating(),
               CustomSizedBox(
                 height: height * 0.02,
               ),
@@ -106,18 +119,18 @@ class GiocatoreInvite extends StatelessWidget {
                 flex: 1,
               ),
               CustomButton(
-                  width: width * 0.8,
+                  color: Appcolor.buttonnewcolor,
+                  width: width * 0.7,
                   height: height * 0.05,
                   text: 'Open Chat',
-                  onpressed: () {}),
+                  imgpath: ImagePath.chatgio,
+                  onpressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => Chatwithuser()));
+                  }),
               CustomSizedBox(
                 height: height * 0.04,
               ),
-              CustomButton(
-                  width: width * 0.8,
-                  height: height * 0.05,
-                  text: 'Start Match',
-                  onpressed: () {})
             ],
           ),
         ),

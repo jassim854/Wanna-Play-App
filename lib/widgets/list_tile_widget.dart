@@ -42,12 +42,14 @@ class CustomListTile extends StatelessWidget {
               offset: Offset(0.0, 0.0),
             )
           ],
-          color: Appcolor.textfield_color,
+          color: Appcolor.listtilecolor,
           borderRadius: BorderRadius.circular(16)),
       child: ListTile(
-        title: Text(
-          text,
-          style: textc,
+        title: Center(
+          child: Text(
+            text,
+            style: textlisttile,
+          ),
         ),
         onTap: ontap,
         leading: icon,

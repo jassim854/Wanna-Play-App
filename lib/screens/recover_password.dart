@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tennis_app/screens/login.dart';
 import 'package:tennis_app/screens/new_password.dart';
+import 'package:tennis_app/utilities/constant/colors.dart';
 import 'package:tennis_app/utilities/constant/heading_text_style.dart';
+import 'package:tennis_app/utilities/constant/image_path.dart';
 import 'package:tennis_app/widgets/button_widgets.dart';
 import 'package:tennis_app/widgets/circle_widget.dart';
 import 'package:tennis_app/widgets/custom_sized_box_widget.dart';
@@ -16,45 +18,49 @@ class RecoverPassword extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Container(
-        width: double.infinity,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            CustomSizedBox(
-              height: height * 0.15,
-            ),
-            Circle(
-              url:
-                  'https://www.hdwallpaper.nu/wp-content/uploads/2015/08/rafael-nadal-beat-lucas-pouille-to-reach-third-round-in-monte-carlo-5.jpg',
-            ),
-            CustomSizedBox(
-              height: height * 0.1,
-            ),
-            Text(
-              "Recover Password",
-              style: heading_text,
-            ),
-            CustomSizedBox(
-              height: height * 0.7,
-            ),
-            TextFields(
-              height: height * 0.06,
-              width: width * 0.7,
-              text: 'Email',
-            ),
-            CustomSizedBox(
-              height: height * 0.04,
-            ),
-            CustomButton(
-              height: height * 0.06,
-              width: width * 0.7,
-              text: "Confirm",
-              onpressed: () {
-                Navigator.of(context).push(
-                    (MaterialPageRoute(builder: (context) => NewPassword())));
-              },
-            ),
-          ],
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              fit: BoxFit.cover, image: AssetImage(ImagePath.spalsh)),
+        ),
+        child: Container(
+          width: double.infinity,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CustomSizedBox(
+                height: height * 5,
+              ),
+              Image.asset(ImagePath.spalshicon),
+              CustomSizedBox(
+                height: height * 0.02,
+              ),
+              Text(
+                "Recover Password",
+                style: heading_text,
+              ),
+              CustomSizedBox(
+                height: height * 0.2,
+              ),
+              TextFields(
+                height: height * 0.06,
+                width: width * 0.7,
+                text: 'Email',
+              ),
+              CustomSizedBox(
+                height: height * 0.04,
+              ),
+              CustomButton(
+                color: Appcolor.buttonnewcolor,
+                height: height * 0.05,
+                width: width * 0.8,
+                text: "Confirm",
+                onpressed: () {
+                  Navigator.of(context).push(
+                      (MaterialPageRoute(builder: (context) => NewPassword())));
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tennis_app/screens/sign_up_pop.dart';
 import 'package:tennis_app/utilities/constant/button_text_style.dart';
+import 'package:tennis_app/utilities/constant/colors.dart';
 import 'package:tennis_app/utilities/constant/heading_text_style.dart';
+import 'package:tennis_app/utilities/constant/image_path.dart';
 import 'package:tennis_app/widgets/button_widgets.dart';
 import 'package:tennis_app/widgets/circle_widget.dart';
 import 'package:tennis_app/widgets/custom_sized_box_widget.dart';
@@ -32,7 +34,7 @@ class _SignUpClassificaState extends State<SignUpClassifica> {
               const SizedBox(
                 height: 88,
               ),
-              Circle(url: 'http://im.rediff.com/sports/2018/jan/15nadal.jpg'),
+         Circle(radius: 50, images: ImagePath.loginlogo),
               const SizedBox(
                 height: 27,
               ),
@@ -146,7 +148,7 @@ class _SignUpClassificaState extends State<SignUpClassifica> {
               ),
               Text(
                 'Privacy Policy ',
-                style: privacy_color,
+                style: newtextcolour,
               ),
               const SizedBox(
                 height: 13,
@@ -155,6 +157,7 @@ class _SignUpClassificaState extends State<SignUpClassifica> {
                 height: 53,
               ),
               CustomButton(
+                  color: Appcolor.buttonnewcolor,
                   height: height * 0.06,
                   width: width * 0.8,
                   text: 'Registrati',

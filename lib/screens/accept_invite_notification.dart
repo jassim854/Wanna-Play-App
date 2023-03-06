@@ -11,6 +11,7 @@ import 'package:tennis_app/screens/giocatoreinvite.dart';
 import 'package:tennis_app/utilities/constant/button_text_style.dart';
 import 'package:tennis_app/utilities/constant/colors.dart';
 import 'package:tennis_app/utilities/constant/heading_text_style.dart';
+import 'package:tennis_app/utilities/constant/image_path.dart';
 import 'package:tennis_app/widgets/button_widgets.dart';
 import 'package:tennis_app/widgets/circle_widget.dart';
 import 'package:tennis_app/widgets/custom_sized_box_widget.dart';
@@ -24,7 +25,13 @@ class AcceptInvite extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Roger Federer"),
+        title: Center(
+          child: const Text(
+            "Roger Federer",
+            style: TextStyle(color: Colors.black),
+          ),
+        ),
+        backgroundColor: Appcolor.textfield_color,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -35,7 +42,11 @@ class AcceptInvite extends StatelessWidget {
               CustomSizedBox(
                 height: height * 0.05,
               ),
-              Container(width: 182, height: 182, child: Circle(url: '')),
+              Container(
+                width: 182,
+                height: 182,
+                child: Circle(radius: 50, images: ImagePath.acceptimage),
+              ),
               CustomSizedBox(
                 height: height * 0.04,
               ),
@@ -46,10 +57,6 @@ class AcceptInvite extends StatelessWidget {
               CustomSizedBox(
                 height: height * 0.015,
               ),
-              RatingStars(),
-              CustomSizedBox(
-                height: height * 0.02,
-              ),
               Text(
                 'Giocatore',
                 style: radio_text_color,
@@ -57,57 +64,73 @@ class AcceptInvite extends StatelessWidget {
               CustomSizedBox(
                 height: height * 0.2,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 40),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Citta :   Milano',
-                          style: radio_text_color,
-                        ),
-                      ],
-                    ),
+              Container(
+                decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(2, 9), // changes position of shadow
+                      ),
+                    ],
+                    color: Appcolor.containercolor,
+                    borderRadius: BorderRadius.circular(18)),
+                height: height * 0.2,
+                width: width * 0.8,
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Citta :   Milano',
+                            style: radio_text_color,
+                          ),
+                        ],
+                      ),
 
-                    Padding(
-                      padding: const EdgeInsets.only(top: 27.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            'FederAzione ranking: 2 ',
-                            style: radio_text_color,
-                          ),
-                        ],
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Mantiene la classifica',
-                          style: hint_text,
+                      Padding(
+                        padding: const EdgeInsets.only(top: 27.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              'FederAzione ranking: 2 ',
+                              style: radio_text_color,
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                    // CustomSizedBox(
-                    //   height: height * 0.01,
-                    // ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 9.0),
-                      child: Row(
+                      ),
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text(
-                            'Eta: 28',
-                            style: radio_text_color,
+                            'Mantiene la classifica',
+                            style: hint_text,
                           ),
                         ],
                       ),
-                    ),
-                  ],
+                      // CustomSizedBox(
+                      //   height: height * 0.01,
+                      // ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 9.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Eta: 28',
+                              style: radio_text_color,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
               const Spacer(
@@ -117,21 +140,20 @@ class AcceptInvite extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   CustomButton(
-                      width: width * 0.25,
+                      width: width * 0.3,
                       height: height * 0.05,
                       text: 'Accept',
+                      color: Appcolor.buttonnewcolor,
                       onpressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => CoachInvite()));
+                            builder: (context) => const CoachInvite()));
                       }),
                   CustomButton(
-                      width: width * 0.25,
+                      width: width * 0.3,
                       height: height * 0.05,
-                      color: Appcolor.refusecolor,
+                      color: Appcolor.buttonnewcolor,
                       text: 'Refuse',
-                      onpressed: () {
-                      
-                      })
+                      onpressed: () {})
                 ],
               )
             ],

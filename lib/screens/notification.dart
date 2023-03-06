@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:tennis_app/screens/accept_invite_notification.dart';
+import 'package:tennis_app/screens/invitation_notification.dart';
+import 'package:tennis_app/utilities/constant/colors.dart';
 import 'package:tennis_app/utilities/constant/heading_text_style.dart';
+import 'package:tennis_app/utilities/constant/image_path.dart';
 import 'package:tennis_app/widgets/circle_widget.dart';
 import 'package:tennis_app/widgets/custom_sized_box_widget.dart';
 
@@ -15,9 +18,12 @@ class Notifications extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "Notification",
-          style: heading_text,
+        backgroundColor: Appcolor.textfield_color,
+        title: Center(
+          child: Text(
+            "Notification",
+            style: heading_text,
+          ),
         ),
       ),
       body: Column(
@@ -26,16 +32,12 @@ class Notifications extends StatelessWidget {
             height: height * 0.04,
           ),
           ListTile(
-            leading: Circle(
-              url: '',
-              height: 50,
-              width: 50,
-            ),
+            leading: Circle(radius: 50, images: ImagePath.rafaellogo),
             trailing: TextButton(
                 onPressed: () {},
                 child: Text(
                   "Chat",
-                  style: notificationtrailingcolor,
+                  style: notificationtext,
                 )),
             title: Text(
               'Rafael Nadal has accepted your invitation',
@@ -46,18 +48,19 @@ class Notifications extends StatelessWidget {
               style: notificationsubtitlecolor,
             ),
           ),
+          const Divider(
+            height: 21,
+            thickness: 5,
+            color: Appcolor.divivdercolor,
+          ),
           ListTile(
-            leading: Circle(
-              url: '',
-              height: 50,
-              width: 50,
-            ),
+            leading: Circle(radius: 50, images: ImagePath.loginlogo),
             trailing: TextButton(
                 onPressed: () {
-
-                  Navigator.of(context).push(MaterialPageRoute(builder: ((context) => AcceptInvite())));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: ((context) => InvitationNotification())));
                 },
-                child: Text("Details", style: notificationtrailingcolor)),
+                child: Text("Details", style: notificationtext)),
             title: Text(
               'Roger Federer invited you',
               style: notificationtitlecolor,
@@ -67,15 +70,15 @@ class Notifications extends StatelessWidget {
               style: notificationsubtitlecolor,
             ),
           ),
+          const Divider(
+            height: 21,
+            thickness: 5,
+            color: Appcolor.divivdercolor,
+          ),
           ListTile(
-            leading: Circle(
-              url: '',
-              height: 50,
-              width: 50,
-            ),
+            leading: Circle(radius: 50, images: ImagePath.loginlogo),
             trailing: TextButton(
-                onPressed: () {},
-                child: Text("Chat", style: notificationtrailingcolor)),
+                onPressed: () {}, child: Text("Chat", style: notificationtext)),
             title: Text(
               'Novak Djokovic has accepted your invitation',
               style: notificationtitlecolor,
@@ -85,15 +88,15 @@ class Notifications extends StatelessWidget {
               style: notificationsubtitlecolor,
             ),
           ),
+          const Divider(
+            height: 21,
+            thickness: 5,
+            color: Appcolor.divivdercolor,
+          ),
           ListTile(
-            leading: Circle(
-              url: '',
-              height: 50,
-              width: 50,
-            ),
+            leading: Circle(radius: 50, images: ImagePath.loginlogo),
             trailing: TextButton(
-                onPressed: () {},
-                child: Text("Edit", style: notificationtrailingcolor)),
+                onPressed: () {}, child: Text("Edit", style: notificationtext)),
             title: Text(
               'Draft Match',
               style: notificationtitlecolor,
@@ -103,15 +106,15 @@ class Notifications extends StatelessWidget {
               style: notificationsubtitlecolor,
             ),
           ),
+          const Divider(
+            height: 21,
+            thickness: 5,
+            color: Appcolor.divivdercolor,
+          ),
           ListTile(
-            leading: Circle(
-              url: '',
-              height: 50,
-              width: 50,
-            ),
+            leading: Circle(radius: 50, images: ImagePath.loginlogo),
             trailing: TextButton(
-                onPressed: () {},
-                child: Text("Edit", style: notificationtrailingcolor)),
+                onPressed: () {}, child: Text("Edit", style: notificationtext)),
             title: Text(
               'You Vs Nadal',
               style: notificationtitlecolor,
@@ -121,15 +124,15 @@ class Notifications extends StatelessWidget {
               style: notificationsubtitlecolor,
             ),
           ),
+          const Divider(
+            height: 21,
+            thickness: 5,
+            color: Appcolor.divivdercolor,
+          ),
           ListTile(
-            leading: Circle(
-              url: '',
-              height: 50,
-              width: 50,
-            ),
+            leading: Circle(radius: 50, images: ImagePath.loginlogo),
             trailing: TextButton(
-                onPressed: () {},
-                child: Text("Edit", style: notificationtrailingcolor)),
+                onPressed: () {}, child: Text("Edit", style: notificationtext)),
             title: Text(
               'Lesson with Djokovic',
               style: notificationtitlecolor,
