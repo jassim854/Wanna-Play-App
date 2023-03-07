@@ -25,7 +25,7 @@ class TennisClubRecension extends StatefulWidget {
 
 class _TennisClubRecensionState extends State<TennisClubRecension> {
   DateTime today = DateTime.now();
- 
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -442,7 +442,7 @@ class _TennisClubRecensionState extends State<TennisClubRecension> {
                       style: text_color,
                     ),
                     const Spacer(),
-                  Rating()
+                    Rating()
                   ],
                 ),
                 SizedBox(
@@ -455,7 +455,7 @@ class _TennisClubRecensionState extends State<TennisClubRecension> {
                       style: text_color,
                     ),
                     const Spacer(),
-                   Rating()
+                    Rating()
                   ],
                 ),
                 SizedBox(
@@ -468,7 +468,7 @@ class _TennisClubRecensionState extends State<TennisClubRecension> {
                       style: text_color,
                     ),
                     const Spacer(),
-                   Rating()
+                    Rating()
                   ],
                 ),
                 SizedBox(
@@ -481,7 +481,7 @@ class _TennisClubRecensionState extends State<TennisClubRecension> {
                       style: text_color,
                     ),
                     const Spacer(),
-                     Rating()
+                    Rating()
                   ],
                 ),
                 SizedBox(
@@ -493,7 +493,8 @@ class _TennisClubRecensionState extends State<TennisClubRecension> {
                       " Professionalità",
                       style: text_color,
                     ),
-                Rating()
+                    const Spacer(),
+                    Rating()
                   ],
                 ),
                 SizedBox(
@@ -515,4 +516,3 @@ class _TennisClubRecensionState extends State<TennisClubRecension> {
     );
   }
 }
-

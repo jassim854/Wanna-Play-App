@@ -37,7 +37,7 @@ class ChatScreen extends StatelessWidget {
                             text: 'Rafael Nadal',
                           ))));
                 },
-                leading: Circle(radius: 30, images: ImagePath.rafaellogo),
+                leading: Circle(radius: 50, images: ImagePath.rafaellogo),
                 title: const Text("Rafael Nadal"),
                 subtitle: const Text("Send a Message"),
               ),
